@@ -14,3 +14,6 @@ dependencies { // biblioteca
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3' // o appliance para executar os testes de API
 }
 
+test{
+    useTestNG()
+}
