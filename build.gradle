@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'io.qqakarol'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies { // biblioteca
+    testImplementation group: 'org.testng', name: 'testng', version: '7.1.0' // motor da API, framework de teste Java
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3' // o appliance para executar os testes de API
+}
+
+test{
+    useTestNG()
+}
