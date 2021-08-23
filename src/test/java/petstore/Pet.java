@@ -13,7 +13,9 @@ import java.util.List;
 
 import static io.restassured.RestAssured.defaultParser;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.contains;
 
 // 3 - Classe: o que queremos manter informação e interagir
 public class Pet {
@@ -48,6 +50,8 @@ public class Pet {
         .then()
                 .log().all()
                 .statusCode(200)
+                .body("category.name", is ("Dog")) //aqui tem um valor exclusivo
+                .body("tags.name", contains ("STAKarol")) //aqui pode ter  multiplas opções
                 .body("name", is("Duda Ferraz"))
                 .body("status", is("available"))
         ;
