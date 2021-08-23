@@ -3,13 +3,17 @@ package petstore;
 
 // 2 - Bibliotecas: onde definimos
 
+import io.restassured.specification.Argument;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
+import static io.restassured.RestAssured.defaultParser;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.is;
 
 // 3 - Classe: o que queremos manter informação e interagir
 public class Pet {
@@ -44,6 +48,9 @@ public class Pet {
         .then()
                 .log().all()
                 .statusCode(200)
+                .body("name", is("Duda Ferraz"))
+                .body("status", is("available"))
         ;
     }
+
 }
