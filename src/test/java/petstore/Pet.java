@@ -57,4 +57,22 @@ public class Pet {
         ;
     }
 
+    public void consultarPet(){
+
+        String petID = "270919851234";
+
+        given()
+                .contentType("application/json")
+                .log().all()
+
+        .when()
+                .get(uri + "/" + petID)
+
+        .then()
+                .log().all()
+                .statusCode(200)
+
+        ;
+    }
+
 }
