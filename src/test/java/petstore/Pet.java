@@ -30,7 +30,7 @@ public class Pet {
     }
 
     // Incluir - Create - na API é Post
-    @Test // é preciso sempre incluir essa notação para identificar que aqui começa o seu teste. Identifica o método ou função como um teste para o TestNG
+    @Test(priority = 1) // é preciso sempre incluir essa notação para identificar que aqui começa o seu teste. Identifica o método ou função como um teste para o TestNG
     public void incluirPet() throws IOException {
         String jsonBody = lerJson("data/pet1.json");
 
@@ -57,8 +57,8 @@ public class Pet {
         ;
     }
 
+    @Test(priority = 2) //priority é a ordem de execução do teste. Para rodar o teste completo vai no buil.gradle e roda no testNG
     public void consultarPet(){
-
         String petID = "270919851234";
 
         given()
@@ -71,6 +71,9 @@ public class Pet {
         .then()
                 .log().all()
                 .statusCode(200)
+                .body("name", is("Duda Ferraz"))
+                .body("category.name", is ("Dog"))
+                .body("status", is("available"))
 
         ;
     }
