@@ -1,0 +1,18 @@
+{
+  "id": 270919851234,
+  "category": {
+    "id": 1,
+    "name": "Dog"
+  },
+  "name": "Duda Ferraz",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 2021,
+      "name": "STAKarol"
+    }
+  ],
+  "status": "sold"
+}
